@@ -1,4 +1,4 @@
-# GitHub Copilot Foundations - Lab 1: Refactoring with Confidence (Angular)
+# Arula.AI - GitHub Copilot Foundations - Lab 1: Refactoring with Confidence (Angular)
 
 ## ⚠️ Warning
 This repository contains intentionally problematic code for training purposes. 
