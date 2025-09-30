@@ -1,5 +1,11 @@
 # Arula.AI - GitHub Copilot Foundations - Lab 1: Refactoring with Confidence (Angular)
 
+## Copyright & License
+
+Copyright © 2025 InRhythm Arula Labs. All Rights Reserved.
+
+This repository and its contents are proprietary and confidential information of InRhythm Arula Labs. Unauthorized copying, distribution, modification, or use of this material is strictly prohibited. See [LICENSE](LICENSE) for full terms.
+
 ## ⚠️ Warning
 This repository contains intentionally problematic code for training purposes. 
 **DO NOT use this code in production.**
