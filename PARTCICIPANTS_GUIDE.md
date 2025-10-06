@@ -27,26 +27,26 @@
 - `#codebase` is still experimental, but the general consensus seem to be to just use `#codebase`. By itself it gives you your workspace context like you would want, and it can also be paired with any other chat participants (unlike `@workspace` which also requires a slash command and cannot be paired with any other participant)
 
 8. Record baseline tests:
-   - Angular: `#runInTerminal ng test --code-coverage`
+   - Angular: `#runInTerminal npx ng test --code-coverage --watch=false`
    - Java: `#runInTest mvn test jacoco:report`
    Note coverage % and failing specs in a file called `NOTES.md`.
 9. Run `#runInTerminal npm run lint` or `#runInTerminal mvn -pl app checkstyle:check` and capture warning counts; drop them into `NOTES.md`.
-10. Ask Copilot: `/docs Draft a baseline metrics section for NOTES.md summarizing current coverage, lint issues, and failing tests.` Accept and edit as needed.
+10. Ask Copilot: `Draft a baseline metrics section for NOTES.md summarizing current coverage, lint issues, and failing tests.` Accept and edit as needed.
 
 ## Phase 2 · 10 min · Prompting Mastery
-11. Paste the main target file (e.g., `src/app/utils/date-helper.service.ts`) into Copilot Chat with this prompt:
-    - `Context: legacy date helper.
-       /explain Summarize responsibilities, external dependencies, and hidden side effects.`
-12. Follow up with the "Critique then Create" pattern:
-    - `/explain Analyze this file for code smells, performance risks, and security issues. Organize findings by severity.`
-13. Capture Copilot's critique into `RISKS.md`, grouping items under Critical / High / Medium.
-14. Run a targeted search (`rg "DateHelperService" src`) and feed matches back to Copilot:
+11. Reference the main target file (e.g., `#date-helper.service.ts`) into Copilot Chat with this prompt:
+    - `@workspace /expalin this legacy #date-helper.service.ts file and any responsibilities,
+    external dependencies and hidden side effects.
+12. Follow up with the Critique then Create pattern:
+    - `@workspace /explain Analyze this #date-helper.service.ts for code smells, performance risks, and security issues. Organize findings by severity.`
+13. `Create RISKS.md, grouping items under Critical / High / Medium.`
+14. Run a targeted search (`#runInTerminal rg "DateHelperService" src`) to see usage of DateHelperService accorss the codebase:
     - `/explain From these call sites, what downstream impact should I watch for when refactoring?`
-15. Use "Golden Example" prompt: `/explain Show me an idiomatic Angular service test from this repo I can mirror.` Link the example Copilot returns.
+15. Use Golden Example prompt: `/explain Show me an idiomatic Angular service test from this repo I can mirror.` Link the example Copilot returns.
 
 ## Phase 3 · 7 min · Refactor Plan with Copilot
-16. Ask Copilot: `/explain Create a numbered refactor plan for date-helper.service.ts that addresses Critical items first, each with success criteria and required tests.`
-17. Paste the response into `REFACTOR_PLAN.md`; adjust wording to match your voice.
+16. Ask Copilot: `@workspace /explain Create a numbered refactor plan for #date-helper.service.ts that addresses Critical items in #RISKS.md first, each with success criteria and required tests.`
+17. Paste the response into `REFACTOR_PLAN.md`;
 18. For each plan step, ask Copilot to generate verification criteria: `/explain For Step 1 above, how will I prove success via tests or metrics?`
 
 ## Phase 4 · 10 min · Test Generation Sprint
