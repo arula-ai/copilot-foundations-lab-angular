@@ -28,7 +28,7 @@
 
 8. Record baseline tests:
    - Angular: `#runInTerminal npx ng test --code-coverage --watch=false`
-   - Java: `#runInTest mvn test jacoco:report`
+   - Java: `#runInTerminal mvn test jacoco:report`
    Note coverage % and failing specs in a file called `NOTES.md`.
 9. Run `#runInTerminal npm run lint` or `#runInTerminal mvn -pl app checkstyle:check` and capture warning counts; drop them into `NOTES.md`.
 10. Ask Copilot: `Draft a baseline metrics section for NOTES.md summarizing current coverage, lint issues, and failing tests.` Accept and edit as needed.
