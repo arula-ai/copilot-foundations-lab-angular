@@ -12,15 +12,25 @@
 5. Fork the correct repo track:
    - Angular: `git clone https://github.com/arula-ai/copilot-foundations-lab-angular.git`
    - Java:    `git clone https://github.com/arula-ai/copilot-foundations-lab-java.git`
-6. Run `npm install` (Angular) or `mvn clean install -DskipTests` (Java) and keep Copilot Chat open to diagnose any install issues via `/fix` if they appear.
+7. Run `#getProjectSetupInfo` to get general information about the project and how to set it up
+6. Run `#runInTerminal npm install` (Angular) or `#runInTerminal mvn clean install -DskipTests`
 
 ## Phase 1 · 10 min · Baseline Metrics
-7. In Copilot Chat: `/explain Summarize the project layout and major modules.` You can append #codebase to prompt it to scan your entire codebase (@workspace will reference any currently open files)
+7. In Copilot Chat just type this: `#codebase`
+
+`#codebase` is a chat variable that references relevant context in your chat prompt. When used, it adds pertinent workspace content to your prompt. For example, asking "How do I build this `#codebase`?" will provide steps to build the project by analyzing documentation, scripts, and configurations. - 
+
+`@workspace` is a built-in chat participant that enhances chat interactions by providing domain-specific knowledge. For example, when you ask "`@workspace` how is authentication implemented?" it will provide an overview of the authentication flow with references to the relevant code.
+
+- Used by itself, this is identical to @workspace. Both #codebase and `@workspace` can provide workspace context to Copilot
+- When `#codebase` is used with another chat participant (`@terminal`, `@vscode`, `@github` etc.), it provides context to that participant. You can only use one participant at a time, so that is why it is needed.
+- `#codebase` is still experimental, but the general consensus seem to be to just use `#codebase`. By itself it gives you your workspace context like you would want, and it can also be paired with any other chat participants (unlike `@workspace` which also requires a slash command and cannot be paired with any other participant)
+
 8. Record baseline tests:
-   - Angular: `ng test --code-coverage`
-   - Java: `mvn test jacoco:report`
-   Note coverage % and failing specs in `NOTES.md`.
-9. Run `npm run lint` or `mvn -pl app checkstyle:check` and capture warning counts; drop them into `NOTES.md`.
+   - Angular: `#runInTerminal ng test --code-coverage`
+   - Java: `#runInTest mvn test jacoco:report`
+   Note coverage % and failing specs in a file called `NOTES.md`.
+9. Run `#runInTerminal npm run lint` or `#runInTerminal mvn -pl app checkstyle:check` and capture warning counts; drop them into `NOTES.md`.
 10. Ask Copilot: `/docs Draft a baseline metrics section for NOTES.md summarizing current coverage, lint issues, and failing tests.` Accept and edit as needed.
 
 ## Phase 2 · 10 min · Prompting Mastery

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DateHelperService } from '../../utils/date-helper.service';
 import { OrderRepositoryService } from '../../data/order-repository.service';
@@ -25,6 +25,7 @@ declare var $: any;
  */
 @Component({
   selector: 'app-order-list',
+  host: { class: 'legacy-order-list' },
   template: `
     <div class="order-list-container" [style.background-color]="containerBackgroundColor">
       <h2 [style.color]="titleColor" (click)="changeTitleColor()">Order Management</h2>
@@ -247,8 +248,12 @@ declare var $: any;
     }
   `]
 })
-export class OrderListComponent implements OnInit {
+export class OrderListComponent implements OnInit, OnDestroy {
   
+  @Input('ordersData') ordersInputAlias!: Order[];
+  @Output() onSelected = new EventEmitter<Order>();
+  @Output() click = new EventEmitter<void>();
+
   // Massive component state - should be broken down
   orders: Order[] = [];
   filteredOrders: Order[] = [];
@@ -300,6 +305,9 @@ export class OrderListComponent implements OnInit {
   }
   
   // No OnDestroy implementation - memory leaks
+
+  ngOnDestroy(): void {}
+  
   
   private initializeComponent(): void {
     // jQuery DOM manipulation - anti-pattern in Angular
