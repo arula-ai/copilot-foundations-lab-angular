@@ -13,6 +13,7 @@
    - Angular: `git clone https://github.com/arula-ai/copilot-foundations-lab-angular.git`
    - Java:    `git clone https://github.com/arula-ai/copilot-foundations-lab-java.git`
 7. Run `#getProjectSetupInfo` to get general information about the project and how to set it up
+    - you can also click the settings icon to generate the copilot-instructions.md file
 6. Run `#runInTerminal npm install` (Angular) or `#runInTerminal mvn clean install -DskipTests`
 
 ## Phase 1 · 10 min · Baseline Metrics
@@ -72,10 +73,9 @@
 ## Phase 7 · 5 min · Sharing & Wrap-Up
 33. Capture insights: `Summarize the prompt patterns that worked best for me today.` Append to `NOTES.md` under “Prompts That Worked.”
 34. Ask Copilot: `Produce a retrospective bullet list (Start/Stop/Continue) for my next session.` Save to `docs/session-notes/<date>.md`.
-35. Run `git status`; ensure only intentional files changed.
-36. Stage and commit: `git add .` → `git commit -m "Lab: Refactor date helper with Copilot assistance"`.
+35. Run `#runInTerminal git status`; ensure only intentional files changed.
+36. Stage and commit: `#runInTerminal git add .` → `#runInTerminal git commit -m "Lab: Refactor date helper with Copilot assistance"`.
 37. Push the branch and open a pull request. Paste Copilot’s PR draft into the description and edit as needed.
-38. Post a 1–2 sentence insight in team Slack summarizing what Copilot accelerated for you.
 
 ---
 
