@@ -50,17 +50,17 @@
 18. For each plan step, ask Copilot to generate verification criteria: `/explain For Step 1 above, how will I prove success via tests or metrics?`
 
 ## Phase 4 · 10 min · Test Generation Sprint
-19. Use Copilot `/tests Generate baseline unit tests for date-helper.service focusing on happy paths.`
+19. Use Copilot `/tests Generate baseline unit tests for #date-helper.service focusing on happy paths.`
 20. Iterate: `/tests Add edge-case coverage for invalid dates, DST transitions, and leap years. Use Angular TestBed.`
 21. For async logic, prompt: `/tests Create tests using fakeAsync and tick for the timer-based code.`
-22. Run the suite (`ng test --code-coverage` or `mvn test jacoco:report`); paste failing output back into Copilot with `/fix` to get remediation suggestions.
+22. Run the suite (`#runInTerminal ng test --code-coverage` or `#runInTerminal mvn test jacoco:report`); paste failing output back into Copilot with `/fix` to get remediation suggestions.
 23. Log new coverage numbers in `NOTES.md`; highlight >10% improvements.
 
 ## Phase 5 · 13 min · Implement One Safe Refactor
 24. Pick a `REFACTOR_PLAN.md` Step with Low risk.
 25. Before editing, ask Copilot inline: `// Copilot: rewrite this method using RxJS switchMap and takeUntil.` Accept or adjust suggestions.
 26. When Copilot proposes changes, demand explanations: `/explain Why did you choose switchMap here? Are there any regressions to watch for?`
-27. Keep diffs small; after each save, run `ng test --watch=false` or module-specific Maven tests.
+27. Keep diffs small; after each save, run `#runInTerminal ng test --watch=false` or module-specific Maven tests.
 28. If Copilot's change fails tests, use `/fix` with the failing stack trace to generate patches.
 
 ## Phase 6 · 10 min · Documentation and PR Prep
@@ -83,7 +83,8 @@
 - **Critique then Create**: `/explain Analyze…` → `/fix Refactor…`
 - **Constrain by Interfaces**: `/fix Implementation must satisfy PaymentProcessor interface.`
 - **Golden Example**: `/explain Mirror this test style for OrderService.`
-- **Slash Commands**: `/explain`, `/tests`, `/fix`, `/docs`
+- **Slash Commands**: `/explain`, `/tests`, `/fix`
+- **Copilot variables**: `#codebase`, `#file:name`
 - **Shortcuts**: Copilot Chat (`Cmd+/` • `Alt+/`), Inline Suggestion (`Cmd+I` • `Ctrl+I`)
 
 ## Troubleshooting w/ Copilot
@@ -94,7 +95,5 @@
 
 ## Post-Session Homework
 - Apply "Critique then Create" to a production method this week and record outcomes.
-- Log coverage improvements and time saved using Copilot in your team tracker.
+- Log coverage improvements and time saved using Copilot in your tracker.
 - Share one successful prompt in Slack to reinforce collective learning.
-
-You now have an end-to-end Copilot-driven workflow. Execute deliberately, verify relentlessly, and let Copilot handle the scaffolding while you own the engineering judgment.
