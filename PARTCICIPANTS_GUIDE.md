@@ -57,11 +57,20 @@
 22. Run the suite (`#runInTerminal ng test --code-coverage` or `#runInTerminal mvn test jacoco:report`); paste failing output back into Copilot with `/fix` to get remediation suggestions.
 23. Log new coverage numbers in `NOTES.md`; highlight >10% improvements.
 
+\
+
 ## Phase 5 · 13 min · Implement One Safe Refactor
 24. Pick a `REFACTOR_PLAN.md` Step with Low risk.
 25. Before editing, ask Copilot inline: `// Copilot: rewrite this method using RxJS switchMap and takeUntil.` Accept or adjust suggestions.
 26. When Copilot proposes changes, demand explanations: `/explain Why did you choose switchMap here? Are there any regressions to watch for?`
 27. Keep diffs small; after each save, run `#runInTerminal ng test --watch=false` or module-specific Maven tests.
+
+`#runInTerminal npx nyc report --reporter=text-lcov`
+
+`#runInTerminal npx ng test --code-coverage --watch=false`
+
+`$runInTerminal open coverage/copilot-foundations-lab1-angular/index.html`
+
 28. If Copilot's change fails tests, use `/fix` with the failing stack trace to generate patches.
 
 ## Phase 6 · 10 min · Documentation and PR Prep
