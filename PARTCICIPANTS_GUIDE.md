@@ -64,14 +64,14 @@
 28. If Copilot's change fails tests, use `/fix` with the failing stack trace to generate patches.
 
 ## Phase 6 · 10 min · Documentation and PR Prep
-29. Ask Copilot: `/docs Generate docstring comments for the refactored public APIs using Angular style.`
-30. Update `RISKS.md` with resolved items; prompt Copilot: `/docs Summarize which risks were mitigated by the refactor.`
-31. Generate a PR summary: `/docs Draft a pull request description including summary, testing, coverage changes, and risk assessment.` Save to `docs/PR_DRAFT.md`.
-32. Request release notes: `/docs Create a short changelog entry for this refactor.` Append to `docs/CHANGELOG.md`.
+29. Ask Copilot: `Generate docstring comments for the refactored public APIs`
+30. Update `RISKS.md` with resolved items; prompt Copilot: ` Summarize which risks were mitigated by the refactor.`
+31. Generate a PR summary: `Draft a pull request description including summary, testing, coverage changes, and risk assessment.`
+32. Request release notes: `Create a short changelog entry for this refactor.` Append to `docs/CHANGELOG.md`.
 
 ## Phase 7 · 5 min · Sharing & Wrap-Up
-33. Capture insights: `/docs Summarize the prompt patterns that worked best for me today.` Append to `NOTES.md` under “Prompts That Worked.”
-34. Ask Copilot: `/docs Produce a retrospective bullet list (Start/Stop/Continue) for my next session.` Save to `docs/session-notes/<date>.md`.
+33. Capture insights: `Summarize the prompt patterns that worked best for me today.` Append to `NOTES.md` under “Prompts That Worked.”
+34. Ask Copilot: `Produce a retrospective bullet list (Start/Stop/Continue) for my next session.` Save to `docs/session-notes/<date>.md`.
 35. Run `git status`; ensure only intentional files changed.
 36. Stage and commit: `git add .` → `git commit -m "Lab: Refactor date helper with Copilot assistance"`.
 37. Push the branch and open a pull request. Paste Copilot’s PR draft into the description and edit as needed.
